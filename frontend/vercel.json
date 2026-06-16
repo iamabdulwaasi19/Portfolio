@@ -1,4 +1,35 @@
+// {
+//   "experimentalServices": {
+//     "frontend": {
+//       "root": "frontend",
+//       "routePrefix": "/",
+//       "framework": "vite"
+//     },
+//     "backend": {
+//       "root": "backend",
+//       "routePrefix": "/_/backend"
+//     }
+//   }
+// }
+
+// {
+//   "rewrites": [{ "source": "/api/(.*)", "destination": "/_/backend/api/$1" }],
+//   "experimentalServices": {
+//     "frontend": {
+//       "root": "frontend",
+//       "routePrefix": "/",
+//       "framework": "vite"
+//     },
+//     "backend": {
+//       "root": "backend",
+//       "routePrefix": "/_/backend"
+//     }
+//   }
+// }
+
 {
+  "buildCommand": "cd frontend && npm install --include=dev && npm run build",
+  "outputDirectory": "frontend/dist",
   "experimentalServices": {
     "frontend": {
       "root": "frontend",
