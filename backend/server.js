@@ -13,20 +13,22 @@ const app = express();
 
 const allowedOrigins = [
   "http://localhost:5173",
-  "https://portfolio-ruddy-gamma-14.vercel.app/",
+  "https://portfolio-ruddy-gamma-14.vercel.app",
 ];
 
 app.use(
   cors({
-    origin: "*",
-    // (origin, callback) => {
-    //   if (!origin || allowedOrigins.includes(origin)) {
-    //     callback(null, true);
-    //   } else {
-    //     callback(new Error("Not allowed by CORS"));
-    //   }
-    // },
+    origin: (origin, callback) => {
+      const sanitizedOrigin = origin ? origin.replace(/\/$/, "") : null;
+
+      if (!sanitizedOrigin || allowedOrigins.includes(sanitizedOrigin)) {
+        callback(null, true);
+      } else {
+        callback(new Error("Not allowed by CORS"));
+      }
+    },
     credentials: true,
+    optionsSuccessStatus: 200,
   }),
 );
 
