@@ -13,7 +13,7 @@ export default function FeaturedProject({ project }) {
           className="text-center mb-12"
         >
           <span className="text-primary mb-2 block">Featured Project</span>
-          <h2 className="text-4xl md:text-5xl mb-4">{project.title}</h2>
+          <h2 className="text-4xl md:text-5xl mb-4">{project?.title}</h2>
         </motion.div>
 
         <div className="grid lg:grid-cols-2 gap-12 items-center">
@@ -25,9 +25,9 @@ export default function FeaturedProject({ project }) {
           >
             <div className="relative group overflow-hidden rounded-xl">
               <img
-                src={project.image}
-                alt={project.title}
-                className="w-full h-[400px] object-cover transition-transform duration-500 group-hover:scale-110"
+                src={project?.image}
+                alt={project?.title}
+                className="w-full h-full object-cover object-center transition-transform duration-500 group-hover:scale-110"
               />
               <div className="absolute inset-0 bg-linear-to-t from-background/90 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
             </div>
@@ -47,7 +47,7 @@ export default function FeaturedProject({ project }) {
             </p>
 
             <h3 className="text-2xl mb-4">The Solution</h3>
-            <p className="text-muted-foreground mb-6">{project.description}</p>
+            <p className="text-muted-foreground mb-6">{project?.description}</p>
 
             <div className="grid sm:grid-cols-2 gap-4 mb-6">
               <div className="p-4 bg-card border border-border rounded-lg">
@@ -69,7 +69,7 @@ export default function FeaturedProject({ project }) {
             <div className="mb-6">
               <h4 className="mb-3">Tech Stack</h4>
               <div className="flex flex-wrap gap-2">
-                {project.techStack.map((tech) => (
+                {project?.techStack.map((tech) => (
                   <span
                     key={tech}
                     className="px-3 py-1 bg-primary/10 text-primary border border-primary/20 rounded-full text-sm"
@@ -82,7 +82,7 @@ export default function FeaturedProject({ project }) {
 
             <div className="flex gap-4">
               <a
-                href={project.liveLink}
+                href={project?.liveLink}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center gap-2 px-6 py-3 bg-primary text-primary-foreground rounded-lg hover:bg-primary/90 transition-colors"
@@ -91,7 +91,7 @@ export default function FeaturedProject({ project }) {
                 Live Demo
               </a>
               <a
-                href={project.githubLink}
+                href={project?.githubLink}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center gap-2 px-6 py-3 border border-border rounded-lg hover:border-primary transition-colors"
